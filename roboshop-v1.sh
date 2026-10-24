@@ -45,6 +45,7 @@ do
                 {
                     "Name": ":'$r53_record'",
                      "Type": "A",
+                     "TTL": 1,
                       "ResourceRecords": [{"Value": "'$ip'"}]
                 }
             }
