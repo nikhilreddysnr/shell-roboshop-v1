@@ -48,14 +48,14 @@ validate $? "ENabling And Starting Rabbit MQ"
 
 rabbitmqctl list_users | grep -qw "roboshop" &>>$log_File
 if [ $? -ne 0 ]; then
-    rabbitmqctl add_user roboshop roboshop123 &>> $log_file
+    rabbitmqctl add_user roboshop roboshop123 &>>$log_File
     validate $? "Creating RabbitMQ user for Roboshop"    
 else
     echo -e "$(timestamp) [INFO] RabbitMQ user already exist...${Y}SKIPPING${N}" 
 fi
 
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>> $log_file
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$log_File
 validate $? "Setting permissions for RabbitMQ user for Roboshop"
 
 echo "$(timestamp) [INFO] Script completed in $SECONDS seconds"
-echo "$(timestamp) [INFO] ==== Script completed Execution =====" | tee -a $log_file
+echo "$(timestamp) [INFO] ==== Script completed Execution =====" | tee -a $log_File
