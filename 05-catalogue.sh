@@ -46,6 +46,7 @@ validate $? "Installing NodeJs"
 id roboshop &>>$log_File
 if [ $? -ne 0 ]; then
     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$log_File
+    validate $? "Creating system user"
 else
     echo "$(timestamp) [INFO] Roboshop User already Exist... ${Y}Skipping${N}"
 fi
@@ -95,7 +96,7 @@ if [ $product_count -eq 0 ]; then
     mongosh --host "mongodb.$domain_name" </app/db/master-data.js &>>$log_File
     validate $? "Loading Products"
 else
-    echo "$(timestamp) [INFO] Products already loaded...${Y}Skipping${N}"
+    echo -e "$(timestamp) [INFO] Products already loaded...${Y}Skipping${N}"
 fi
 
 systemctl restart catalogue &>>$log_File
