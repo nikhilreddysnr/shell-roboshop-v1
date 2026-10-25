@@ -34,7 +34,7 @@ timestamp()
     date "+%F %T"
 }
 
-echo "$(timestamp) [INFO] =======Script Started Execution=========" | tee -a $logs_file
+echo "$(timestamp) [INFO] =======Script Started Execution=========" | tee -a $log_File
 
 cp rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo &>>$log_File
 validate $? "Adding RabbitMQ Repo"

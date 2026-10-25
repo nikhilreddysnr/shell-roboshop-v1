@@ -34,7 +34,7 @@ timestamp()
     date "+%F %T"
 }
 
-echo "$(timestamp) [INFO] =======Script Started Execution=========" | tee -a $log_file
+echo "$(timestamp) [INFO] =======Script Started Execution=========" | tee -a $log_File
 
 dnf module enable mysql:8.4 -y &>>$log_File
 dnf install mysql-server -y &>>$log_File
@@ -49,4 +49,4 @@ validate $? "Setup MySQL Root Password"
 
 
 echo "$(timestamp) [INFO] Script completed in $SECONDS seconds"
-echo "$(timestamp) [INFO] ==== Script completed Execution =====" | tee -a $log_file
+echo "$(timestamp) [INFO] ==== Script completed Execution =====" | tee -a $log_File
