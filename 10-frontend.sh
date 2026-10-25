@@ -61,7 +61,7 @@ validate $? "Downloading and UnZipping Frontend Code"
 sed -i "s/DOMAIN_NAME/$domain_name/g" "$script_dir"/roboshop.conf
 validate $? "Updating all Domain Name"
 
-cp "$script_dir"/roboshop.conf /etc/systemd/system/roboshop.conf 
+cp "$script_dir"/roboshop.conf /etc/nginx/default.d/roboshop.conf
 validate $? "Copying Configuration"
 
 nginx -t &>> $log_File
